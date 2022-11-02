@@ -4,7 +4,7 @@ from config.db import connection
 from models.rioModel import rioModelDb
 from schemas.rio import Rio
 rio = APIRouter()
-
+# esto es un comentario de prueba
 @rio.get("/Rio", response_model=list[Rio], tags=["Rios"])
 def get_rios():
     return connection.execute(rioModelDb.select()).fetchall()
