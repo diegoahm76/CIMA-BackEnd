@@ -15,14 +15,6 @@
             ],
             "jinja": true,
             "justMyCode": true
-        },
-        {
-            "name": "Python: archivo actual",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal",
-            "justMyCode": true
         }
     ]
 }
