@@ -18,12 +18,12 @@ def get_tree_list_by_year(year: float):
 
 @tree.get("/trees/getByDepartment/{dptoId}", tags=["Trees"])
 def get_tree_list_by_department(dptoId: str):
-    treesByDepartment = connection.execute(MMAMA0002356View.select().where(MMAMA0002356View.c.departamento == dptoId)).fetchall()
+    treesByDepartment = connection.execute(MMAMA0002356View.select().where(MMAMA0002356View.c.cod_depto == dptoId)).fetchall()
     return treesByDepartment
 
 @tree.get("/trees/getByMunicipality/{mpioId}", tags=["Trees"])
-def get_tree_list_by_municipality(mpioId: str):
-    treesByMunicipality = connection.execute(MMAMA0002356View.select().where(MMAMA0002356View.c.municipio == mpioId)).fetchall()
+def get_tree_list_by_municipality(mpioId: int):
+    treesByMunicipality = connection.execute(MMAMA0002356View.select().where(MMAMA0002356View.c.cod_mncipio == mpioId)).fetchall()
     return treesByMunicipality
 
 @tree.get("/trees/getByCar/{car}", tags=["Trees"])

@@ -1,18 +1,26 @@
 from fastapi import FastAPI
 import uvicorn
 from routes.tree_api import tree
+from routes.typeValues_api import typeValues
 
 app = FastAPI(
     title="CIMA Api",
     description="Services for CIMA Api",
     version="0.0.1",
-    openapi_tags=[{
-        "name": "Trees",
-        "description": "Services for to get trees"
-    }]
+    openapi_tags=[
+        {
+            "name": "Trees",
+            "description": "Services for to get trees"
+        },
+        {
+            "name": "TypeValues",
+            "description": "Services for to get typeValues"
+        }
+    ]
 )
 
 app.include_router(tree)
+app.include_router(typeValues)
 
 #For debugging with breakpoints
 if __name__ == '__app__':
