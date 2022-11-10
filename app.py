@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import uvicorn
 from routes.tree_api import tree
 from routes.typeValues_api import typeValues
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="CIMA Api",
@@ -17,6 +18,19 @@ app = FastAPI(
             "description": "Services for to get typeValues"
         }
     ]
+)
+
+origins = [
+    "http://localhost:4201",
+    "http://localhost:4200",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(tree)
