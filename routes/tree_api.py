@@ -9,6 +9,11 @@ from utils.utils import setDataGeoJson
 tree = APIRouter()
 
 
+@tree.get("/trees/getAllTrees", response_model=GeoJsonModel, tags=["Trees"])
+def get_tree_list_all():
+    treesByYear = connection.execute(MMAMA0001View.select()).fetchall()
+    geoJsonTrees = setDataGeoJson("FeatureCollection", "Feature", "Point", treesByYear)
+    return geoJsonTrees
 
 @tree.get("/trees/getByYear/{year}", response_model=GeoJsonModel, tags=["Trees"])
 def get_tree_list_by_year(year: float):

@@ -12,7 +12,7 @@ class GeometryModel(BaseModel):
     coordinates: list[float]
 
 class PropertiesModel(BaseModel):
-    anio: float
+    anio: Optional[float]
     x: float
     y: float
 
