@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import uvicorn
 from routes.tree_api import tree
 from routes.typeValues_api import typeValues
+from routes.population_api import population
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
@@ -16,6 +17,10 @@ app = FastAPI(
         {
             "name": "TypeValues",
             "description": "Services for to get typeValues"
+        },
+        {
+            "name": "Population",
+            "description": "Services for to get persons"
         }
     ]
 )
@@ -35,6 +40,7 @@ app.add_middleware(
 
 app.include_router(tree)
 app.include_router(typeValues)
+app.include_router(population)
 
 #For debugging with breakpoints
 if __name__ == '__app__':

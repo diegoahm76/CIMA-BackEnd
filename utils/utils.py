@@ -1,5 +1,6 @@
 from schemas.MMAMA0001 import MMAMA0001Model, GeoJsonModel, FeaturesModel
 from schemas.Municipality import MunicipioModel, typeValueModel, MunicipalityObjectModel
+from schemas.Population import PopulationModel
 
 def setDataGeoJson(type: str, typeFeature: str, typeGeometry: str, data: list[MMAMA0001Model]):
     features: list[FeaturesModel] = []
@@ -36,3 +37,16 @@ def setDataMunicipality(data: list[MunicipioModel]):
     }
 
     return listTypeValue
+
+def setModelPerson(person: PopulationModel):
+    return {
+        "tipodocumento": person.tipodocumento,
+        "numerodocumento": person.numerodocumento,
+        "primernombre": person.primernombre,
+        "segundonombre": person.segundonombre,
+        "primerapellido": person.primerapellido,
+        "segundoapellido": person.segundoapellido,
+        "correo": person.correo,
+        "telefono": person.telefono,
+        "direccion": person.direccion
+    }
